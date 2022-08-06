@@ -1,12 +1,14 @@
 package com.springdemo.springbootapi.service;
 
 import com.springdemo.springbootapi.entity.Department;
+import com.springdemo.springbootapi.error.DepartNotFoundException;
 import com.springdemo.springbootapi.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImplementation implements DepartmentService {
@@ -25,8 +27,13 @@ public class DepartmentServiceImplementation implements DepartmentService {
     }
 
     @Override
-    public Department fetchDepartmentById(Long departmentId) {
-        return departmentRepository.findById(departmentId).get(); // .findById(departmentId) is extra, we need to use .get() to fetch the department by id
+    public Department fetchDepartmentById(Long departmentId) throws DepartNotFoundException {
+//        return departmentRepository.findById(departmentId).get(); // .findById(departmentId) is extra, we need to use .get() to fetch the department by id
+        Optional<Department> department = departmentRepository.findById(departmentId); // .findById(departmentId) is extra, we need to use .get() to fetch the department by id
+        if(!department.isPresent()) {
+            throw new DepartNotFoundException("Department Not Avaiable");
+        }
+        return department.get();
     }
 
     @Override

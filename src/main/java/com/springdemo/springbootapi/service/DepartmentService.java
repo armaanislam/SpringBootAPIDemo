@@ -1,6 +1,7 @@
 package com.springdemo.springbootapi.service;
 
 import com.springdemo.springbootapi.entity.Department;
+import com.springdemo.springbootapi.error.DepartNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface DepartmentService {
 
     public List<Department> fetchDepartmentList();
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 

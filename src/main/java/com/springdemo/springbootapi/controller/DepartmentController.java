@@ -1,6 +1,7 @@
 package com.springdemo.springbootapi.controller;
 
 import com.springdemo.springbootapi.entity.Department;
+import com.springdemo.springbootapi.error.DepartNotFoundException;
 import com.springdemo.springbootapi.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}") // id = path variable
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) { // {id} this is attached to departmentId
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartNotFoundException { // {id} this is attached to departmentId
         LOGGER.info("Inside fetchDepartmentById of DepartmentController");
         return departmentService.fetchDepartmentById(departmentId);
     }
