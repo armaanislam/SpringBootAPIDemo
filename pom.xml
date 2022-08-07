@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.springdemo</groupId>
 	<artifactId>springbootapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version> <!-- Our JAR file will be created having a version of 1.0.0 -->
 	<name>springbootapi</name>
 	<description>springbootapi</description>
 	<properties>

@@ -1,9 +1,20 @@
 # Better Alternative to application.properties; Indentation must be fixed
+
+server:
+  port: '8082'
+
 spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  profiles: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3306/dcapp
+    url: jdbc:mysql://localhost:3306/dcapp-dev
     password: djangofrango
   jpa:
     hibernate:
@@ -11,5 +22,36 @@ spring:
     show-sql: 'true'
 welcome:
   message: Welcome to My World!
-server:
-  port: '8082'
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcapp-qa
+    password: djangofrango
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to My World!
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcapp-prod
+    password: djangofrango
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to My World!
+
