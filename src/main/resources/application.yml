@@ -1,0 +1,15 @@
+# Better Alternative to application.properties; Indentation must be fixed
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcapp
+    password: djangofrango
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to My World!
+server:
+  port: '8082'
