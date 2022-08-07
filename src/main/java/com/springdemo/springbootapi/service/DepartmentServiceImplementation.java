@@ -39,7 +39,6 @@ public class DepartmentServiceImplementation implements DepartmentService {
     @Override
     public void deleteDepartmentById(Long departmentId) {
         departmentRepository.deleteById(departmentId);
-        // We are not return anything;
     }
 
     @Override

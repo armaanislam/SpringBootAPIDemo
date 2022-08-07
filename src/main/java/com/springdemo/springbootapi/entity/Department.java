@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder // Department object can be created with any number of arguments; i.e. if the class has 10 properties, we can create an obj of that class with 0-10 properties. This is BUilder pattern.
 public class Department {
 
     @Id // To define departmentId as primary key
